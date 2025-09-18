@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - VitalLens</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container auth-container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='imgs/VitalLens_logo.png') }}" alt="VitalLens Logo" class="logo-auth">
+        </div>
+        <h1>VitalLens</h1>
+        <p>Sign in to monitor your health</p>
+        <form id="login-form">
+            <input type="email" id="username" placeholder="Email Address" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="btn">Sign In</button>
+        </form>
+        <p id="error-message" class="error"></p>
+        <p class="auth-switch">Don't have an account? <a href="/signup">Sign up</a></p>
+    </div>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

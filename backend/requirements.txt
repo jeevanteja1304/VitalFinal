@@ -1,0 +1,10 @@
+flask
+opencv-python
+numpy
+scipy
+scikit-learn
+joblib
+gunicorn
+werkzeug
+fpdf
+gevent

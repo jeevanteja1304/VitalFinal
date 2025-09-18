@@ -1,0 +1,1 @@
+title: VitalLens emoji: ❤️ colorFrom: blue colorTo: green sdk: docker app_port: 7860 license: mit short_description: A web application that uses computer vision and AI to estimate vital signs from a webcam feed.

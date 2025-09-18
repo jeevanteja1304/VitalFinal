@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to VitalLens</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container auth-container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='imgs/VitalLens_logo.png') }}" alt="VitalLens Logo" class="logo-auth">
+        </div>
+        <h1>Welcome to VitalLens</h1>
+        <p>Your personal health monitoring assistant.</p>
+        <div class="index-actions">
+            <a href="/login" class="btn">Login</a>
+            <a href="/signup" class="btn btn-secondary">Sign Up</a>
+        </div>
+    </div>
+</body>
+</html>

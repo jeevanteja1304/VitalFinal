@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - VitalLens</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <a href="/home" class="logo-container">
+                <img src="{{ url_for('static', filename='imgs/VitalLens_logo.png') }}" alt="VitalLens Logo" class="logo-dashboard">
+                <h1>VitalLens</h1>
+            </a>
+            
+            <div class="user-info">
+                <span>Welcome, {{ username }}</span>
+                <a href="/logout" class="btn btn-secondary">Logout</a>
+            </div>
+        </header>
+
+        <main class="dashboard-main">
+            <div class="card health-monitor">
+                <h2>Health Monitor</h2>
+                <div class="video-wrapper">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div id="face-indicator" class="status-indicator red">Loading Model...</div>
+                </div>
+                <div class="monitor-controls">
+                    <button id="predict-btn" class="btn" disabled>Start Monitoring</button>
+                    <p id="status-text">Initializing camera...</p>
+                </div>
+            </div>
+
+            <div class="card your-results">
+                <h2>Your Results</h2>
+                <div id="results-placeholder">
+                    <p>Measurements will appear here.</p>
+                </div>
+                <div id="results-grid" class="results-grid" style="display: none;">
+                    <div class="result-item">
+                        <p>Heart Rate</p>
+                        <span id="hr-value">-- bpm</span>
+                    </div>
+                    <div class="result-item">
+                        <p>Blood Pressure</p>
+                        <span id="bp-value">--/-- mmHg</span>
+                    </div>
+                    <div class="result-item">
+                        <p>Stress Level</p>
+                        <span id="stress-value">--</span>
+                    </div>
+                    <button id="report-btn" class="btn">Download Report</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- TensorFlow.js and BlazeFace Model Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <!-- UPDATED: Using the WebGL backend for GPU acceleration (much faster) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/blazeface"></script>
+
+    <!-- Your Application Script -->
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+</html>
+
